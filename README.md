@@ -1,4 +1,5 @@
 # Hedgehog
 
-Hedgehog is a Spring, Guice and CDI bean injector in non-managed beans.
-Inspired from Wicket injectors
+### Hedgehog is a Spring, Guice and Weld CDI bean injector in non-managed java classes.
+
+##### Inspired from Wicket injectors

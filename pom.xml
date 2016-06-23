@@ -8,6 +8,9 @@
   <description>Hedgehog is a Spring, Guice and CDI bean injector in non-managed beans.</description>
   <modules>
   	<module>hedgehog-core</module>
+  	<module>hedgehog-spring</module>
+  	<module>hedgehog-guice</module>
+  	<module>hedgehog-weld</module>
   </modules>
    <build>
         <plugins>
