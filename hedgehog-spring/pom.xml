@@ -9,7 +9,9 @@
 	<artifactId>hedgehog-spring</artifactId>
 	<name>hedgehog-spring</name>
 	<description>Spring module for hedgehog</description>
-	<properties></properties>
+	<properties>
+		<spring.version>4.3.0.RELEASE</spring.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>ro.fortsoft</groupId>
@@ -19,7 +21,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.3.0.RELEASE</version>
+			<version>${spring.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

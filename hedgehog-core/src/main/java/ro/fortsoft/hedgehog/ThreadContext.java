@@ -5,7 +5,7 @@ package ro.fortsoft.hedgehog;
  */
 public class ThreadContext {
 
-    private InjectAwareApplication application;
+    private StingAwareApplication application;
 
     private static final ThreadLocal<ThreadContext> threadLocal = new ThreadLocal<>();
 
@@ -31,12 +31,12 @@ public class ThreadContext {
         return context;
     }
 
-    public static InjectAwareApplication getInjectAwareBehavior() {
+    public static StingAwareApplication getInjectAwareBehavior() {
         ThreadContext context = get(false);
         return context != null ? context.application : null;
     }
 
-    public static void setInjectAwareBehavior(InjectAwareApplication behavior){
+    public static void setInjectAwareBehavior(StingAwareApplication behavior){
         ThreadContext context = get(true);
         context.application = behavior;
     }

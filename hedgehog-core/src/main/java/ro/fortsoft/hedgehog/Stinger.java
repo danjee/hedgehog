@@ -7,26 +7,26 @@ import java.util.List;
 /**
  * Created by daniel on 22.06.2016.
  */
-public abstract class Injector {
+public abstract class Stinger {
 
-	private static final MetaDataKey<Injector> KEY = new MetaDataKey<Injector>() {
+	private static final MetaDataKey<Stinger> KEY = new MetaDataKey<Stinger>() {
 
 	};
 
 	private final ClassMetaCache<Field[]> cache = new ClassMetaCache<>();
 
 	
-	public void bind(final InjectAwareApplication application)
+	public void bind(final StingAwareApplication application)
 	{
 		application.setMetaData(KEY, this);
 		ThreadContext.setInjectAwareBehavior(application);
 	}
 	
-	public static Injector get() {
-		return InjectAwareApplication.get().getMetaData(KEY);
+	public static Stinger get() {
+		return StingAwareApplication.get().getMetaData(KEY);
 	}
 
-	public abstract void inject(Object object);
+	public abstract void sting(Object object);
 
 	/**
 	 * traverse fields in the class hierarchy of the object and set their value
@@ -35,7 +35,7 @@ public abstract class Injector {
 	 * @param object
 	 * @param factory
 	 */
-	protected void inject(final Object object, final BeanFinder factory) {
+	protected void sting(final Object object, final BeanFinder factory) {
 		final Class<?> clazz = object.getClass();
 
 		Field[] fields = null;
