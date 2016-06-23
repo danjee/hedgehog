@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 /**
  * Created by daniel on 22.06.2016.
  */
-public interface FieldValueFactory {
+public interface BeanFinder {
     /**
      * Returns the value the field will be set to
      *

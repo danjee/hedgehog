@@ -9,11 +9,6 @@
   <name>hedgehog-core</name>
   <description>Core module for hedge hog</description>
    <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-        </dependency>
     </dependencies>
 
 </project>

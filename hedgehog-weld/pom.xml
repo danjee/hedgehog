@@ -8,4 +8,11 @@
   <artifactId>hedgehog-weld</artifactId>
   <name>hedgehog-weld</name>
   <description>Weld CDI module for hedgehog</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>ro.fortsoft</groupId>
+  		<artifactId>hedgehog-core</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  </dependencies>
 </project>

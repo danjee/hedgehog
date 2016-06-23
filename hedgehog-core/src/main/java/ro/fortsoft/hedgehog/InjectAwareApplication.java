@@ -10,6 +10,7 @@ public interface InjectAwareApplication {
         return behavior;
     }
 
+    void setMetaData(final MetaDataKey<Injector> key, final Object object);
 
     Injector getMetaData(MetaDataKey<Injector> key);
 }
