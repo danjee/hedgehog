@@ -163,4 +163,59 @@ public class App implements StingAwareApplication {
 
 ### Weld
 
-Not implemented yet
+The service class
+
+```java
+public class Child {
+	@Override
+	public String toString() {
+		return "I'm a child";
+	}
+}
+```
+
+A business panel:
+
+```java
+public class Panel {
+
+	@Sting
+	private Child child;
+	
+	public Panel(){
+		Stinger.get().sting(this);
+	}
+	
+	public void test() {
+		System.out.println(child);
+	}
+}
+```
+
+Main class
+
+```java
+public class Main implements StingAwareApplication {
+
+	private MetaDataEntry<?>[] metaData;
+
+	public static void main(String[] args) {
+		Weld weld = new Weld();
+		WeldContainer container = weld.initialize();
+
+		WeldComponentStinger stinger = new WeldComponentStinger(container);
+		Main test = new Main();
+		stinger.bind(test);
+		Panel panel = new Panel();
+		panel.test();
+	}
+
+	public Stinger getMetaData(MetaDataKey<Stinger> key) {
+		return key.get(metaData);
+	}
+
+	public void setMetaData(final MetaDataKey<Stinger> key, final Object object) {
+		metaData = key.set(metaData, object);
+	}
+}
+```

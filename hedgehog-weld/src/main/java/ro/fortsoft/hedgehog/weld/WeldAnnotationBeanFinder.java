@@ -2,6 +2,7 @@ package ro.fortsoft.hedgehog.weld;
 
 import java.lang.reflect.Field;
 
+import org.jboss.weld.bean.builtin.InstanceImpl;
 import org.jboss.weld.environment.se.WeldContainer;
 
 import ro.fortsoft.hedgehog.AnnotationBeanFinder;
@@ -18,9 +19,8 @@ public class WeldAnnotationBeanFinder extends AnnotationBeanFinder {
 	@Override
 	protected Object getBean(Sting sting, Field field, Object fieldOwner) {
 		Object value = null;
-		if (sting.name() != null && sting.name().length() > 0) {
-			value = weldContainer.instance().select(field.getType());
-		}
-		return value;
+		value = weldContainer.instance().select(field.getType());
+		InstanceImpl<?> instance = (InstanceImpl<?>)value;
+		return instance.get();
 	}
 }
