@@ -23,10 +23,13 @@ The bean:
 ```java
 @Component
 public class Child {
-
+	@Override
+	public String toString() {
+		return "I'm a child";
+	}
 }
 ```
-A business panel:
+A business panel (non managed bean)
 
 ```java
 public class Panel {
@@ -117,7 +120,7 @@ public class InMemoryContactService implements ContactService {
 
 ```
 
-A business panel:
+A business panel (non managed bean)
 
 ```java
 public class Panel {
@@ -174,7 +177,7 @@ public class Child {
 }
 ```
 
-A business panel:
+A business panel (non managed bean)
 
 ```java
 public class Panel {
