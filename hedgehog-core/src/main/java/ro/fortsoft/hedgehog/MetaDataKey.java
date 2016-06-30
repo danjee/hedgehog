@@ -1,4 +1,5 @@
 package ro.fortsoft.hedgehog;
+
 /**
  * @author Jonathan Locke
  * 
@@ -6,19 +7,16 @@ package ro.fortsoft.hedgehog;
  *            The type of the object which is stored
  *
  */
-public abstract class MetaDataKey<T>
-{
-	
+public abstract class MetaDataKey<T> {
+
 	/**
 	 * Constructor.
 	 */
-	public MetaDataKey()
-	{
+	public MetaDataKey() {
 	}
 
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		return getClass().hashCode();
 	}
 
@@ -26,8 +24,7 @@ public abstract class MetaDataKey<T>
 	 * @see Object#equals(Object)
 	 */
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		return obj != null && getClass().equals(obj.getClass());
 	}
 
@@ -37,15 +34,11 @@ public abstract class MetaDataKey<T>
 	 * @return The entry value
 	 */
 	@SuppressWarnings("unchecked")
-	public T get(MetaDataEntry<?>[] metaData)
-	{
-		if (metaData != null)
-		{
-			for (MetaDataEntry<?> entry : metaData)
-			{
-				if (equals(entry.key))
-				{
-					return (T)entry.object;
+	public T get(MetaDataEntry<?>[] metaData) {
+		if (metaData != null) {
+			for (MetaDataEntry<?> entry : metaData) {
+				if (equals(entry.key)) {
+					return (T) entry.object;
 				}
 			}
 		}
@@ -59,34 +52,24 @@ public abstract class MetaDataKey<T>
 	 *            The object to set, null to remove
 	 * @return Any new metadata array (if it was reallocated)
 	 */
-	public MetaDataEntry<?>[] set(MetaDataEntry<?>[] metaData, final Object object)
-	{
+	public MetaDataEntry<T>[] set(MetaDataEntry<T>[] metaData, final Object object) {
 		boolean set = false;
-		if (metaData != null)
-		{
-			for (int i = 0; i < metaData.length; i++)
-			{
+		if (metaData != null) {
+			for (int i = 0; i < metaData.length; i++) {
 				MetaDataEntry<?> m = metaData[i];
-				if (equals(m.key))
-				{
-					if (object != null)
-					{
+				if (equals(m.key)) {
+					if (object != null) {
 						// set new value
 						m.object = object;
-					}
-					else
-					{
+					} else {
 						// remove value and shrink or null array
-						if (metaData.length > 1)
-						{
+						if (metaData.length > 1) {
 							int l = metaData.length - 1;
-							MetaDataEntry<?>[] newMetaData = new MetaDataEntry[l];
+							MetaDataEntry<T>[] newMetaData = new MetaDataEntry[l];
 							System.arraycopy(metaData, 0, newMetaData, 0, i);
 							System.arraycopy(metaData, i + 1, newMetaData, i, l - i);
 							metaData = newMetaData;
-						}
-						else
-						{
+						} else {
 							metaData = null;
 						}
 					}
@@ -95,17 +78,13 @@ public abstract class MetaDataKey<T>
 				}
 			}
 		}
-		if (!set && object != null)
-		{
+		if (!set && object != null) {
 			MetaDataEntry<T> m = new MetaDataEntry<T>(this, object);
-			if (metaData == null)
-			{
+			if (metaData == null) {
 				metaData = new MetaDataEntry[1];
 				metaData[0] = m;
-			}
-			else
-			{
-				final MetaDataEntry<?>[] newMetaData = new MetaDataEntry[metaData.length + 1];
+			} else {
+				final MetaDataEntry<T>[] newMetaData = new MetaDataEntry[metaData.length + 1];
 				System.arraycopy(metaData, 0, newMetaData, 0, metaData.length);
 				newMetaData[metaData.length] = m;
 				metaData = newMetaData;
@@ -118,8 +97,7 @@ public abstract class MetaDataKey<T>
 	 * @see Object#toString()
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return getClass().toString();
 	}
 }

@@ -39,6 +39,11 @@ The configuration class:
 @ComponentScan(basePackages = "ro.fortsoft.beans")
 public class AppConfig {
 
+	@Bean
+	public Child getChild(){
+		return new Child();
+	}
+
 }
 ```
 
@@ -62,7 +67,7 @@ public class Panel {
 	private Child child;
 	
 	public Panel(){
-		Injector.get().inject(this);
+		Stinger.get().sting(this);
 	}
 	
 	public void test() {
@@ -86,13 +91,13 @@ public class App implements StingAwareApplication {
 		panel.test();
 	}
 
-	public Injector getMetaData(MetaDataKey<Injector> key) {
-		return key.get(metaData);
-	}
+	public Stinger getMetaData(MetaDataKey<Stinger> key) {
+        return key.get(metaData);
+    }
 
-	public void setMetaData(final MetaDataKey<Stinger> key, final Object object) {
-		metaData = key.set(metaData, object);
-	}
+    public void setMetaData(final MetaDataKey<Stinger> key, final Object object) {
+        metaData = key.set(metaData, object);
+    }
 }
 ```
 

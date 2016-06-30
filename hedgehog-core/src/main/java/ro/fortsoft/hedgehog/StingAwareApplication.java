@@ -10,7 +10,7 @@ public interface StingAwareApplication {
         return behavior;
     }
 
-    void setMetaData(final MetaDataKey<Stinger> key, final Object object);
+    void setMetaData(final MetaDataKey<Stinger> key, final Stinger object);
 
     Stinger getMetaData(MetaDataKey<Stinger> key);
 }
