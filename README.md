@@ -1,6 +1,6 @@
 # Hedgehog
 
-### Hedgehog is a Spring, Guice and Weld CDI bean injector in non-managed java classes.
+### Hedgehog is a Spring, Guice and Weld CDI bean injector in non-managed business java classes. 
 
 ##### Inspired from Wicket injectors
 
@@ -8,8 +8,73 @@
 
 ## Usage sample:
 
-### Guice
+### Spring
 
+The configuration class:
+
+```java
+@Configuration
+@ComponentScan(basePackages = "ro.fortsoft.beans")
+public class AppConfig {
+
+}
+```
+
+The bean:
+
+```java
+@Component
+public class Child {
+	@Override
+	public String toString() {
+		return "I'm a child";
+	}
+}
+```
+A business panel (non managed bean)
+
+```java
+public class Panel {
+
+	@Sting
+	private Child child;
+	
+	public Panel(){
+		Injector.get().inject(this);
+	}
+	
+	public void test() {
+		System.out.println(child);
+	}
+}
+```
+
+Main class
+```java
+public class App implements InjectAwareApplication {
+
+	private MetaDataEntry<?>[] metaData;
+
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		SpringComponentStinger stinger = new SpringComponentStinger(context);
+		App app = new App();
+		stinger.bind(app);
+		Panel panel = new Panel();
+		panel.test();
+	}
+
+	public Injector getMetaData(MetaDataKey<Injector> key) {
+		return key.get(metaData);
+	}
+
+	public void setMetaData(final MetaDataKey<Stinger> key, final Object object) {
+		metaData = key.set(metaData, object);
+	}
+}
+```
+
+### Guice
 
 The Guice module class:
 
@@ -34,8 +99,9 @@ public interface ContactService {
 	
 	void delete(String word);
 }
+```
 
-
+```java
 public class InMemoryContactService implements ContactService {
 
 	public String add(String word) {
@@ -56,7 +122,7 @@ public class InMemoryContactService implements ContactService {
 
 ```
 
-A business panel:
+A business panel (non managed bean)
 
 ```java
 public class Panel {
@@ -100,6 +166,61 @@ public class App implements StingAwareApplication {
 }
 ```
 
-### Spring
-
 ### Weld
+
+The service class
+
+```java
+public class Child {
+	@Override
+	public String toString() {
+		return "I'm a child";
+	}
+}
+```
+
+A business panel (non managed bean)
+
+```java
+public class Panel {
+
+	@Sting
+	private Child child;
+	
+	public Panel(){
+		Stinger.get().sting(this);
+	}
+	
+	public void test() {
+		System.out.println(child);
+	}
+}
+```
+
+Main class
+
+```java
+public class Main implements StingAwareApplication {
+
+	private MetaDataEntry<?>[] metaData;
+
+	public static void main(String[] args) {
+		Weld weld = new Weld();
+		WeldContainer container = weld.initialize();
+
+		WeldComponentStinger stinger = new WeldComponentStinger(container);
+		Main test = new Main();
+		stinger.bind(test);
+		Panel panel = new Panel();
+		panel.test();
+	}
+
+	public Stinger getMetaData(MetaDataKey<Stinger> key) {
+		return key.get(metaData);
+	}
+
+	public void setMetaData(final MetaDataKey<Stinger> key, final Object object) {
+		metaData = key.set(metaData, object);
+	}
+}
+```
