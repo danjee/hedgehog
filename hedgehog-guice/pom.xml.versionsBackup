@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>ro.fortsoft</groupId>
 		<artifactId>hedgehog</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>hedgehog-weld</artifactId>
-	<name>hedgehog-weld</name>
-	<description>Weld CDI module for hedgehog</description>
+	<artifactId>hedgehog-guice</artifactId>
+	<name>hedgehog-guice</name>
+	<description>Guice module for hedgehog</description>
 	<dependencies>
 		<dependency>
 			<groupId>ro.fortsoft</groupId>
@@ -16,10 +16,10 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se</artifactId>
-			<version>${weld.version}</version>
-			<scope>provided</scope>
-		</dependency>
+		    <groupId>com.google.inject</groupId>
+		    <artifactId>guice</artifactId>
+		    <version>${guice.version}</version>
+		    <scope>provided</scope>
+		</dependency>	
 	</dependencies>
 </project>

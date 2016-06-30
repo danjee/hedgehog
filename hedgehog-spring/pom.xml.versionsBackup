@@ -4,11 +4,11 @@
 	<parent>
 		<groupId>ro.fortsoft</groupId>
 		<artifactId>hedgehog</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>hedgehog-weld</artifactId>
-	<name>hedgehog-weld</name>
-	<description>Weld CDI module for hedgehog</description>
+	<artifactId>hedgehog-spring</artifactId>
+	<name>hedgehog-spring</name>
+	<description>Spring module for hedgehog</description>
 	<dependencies>
 		<dependency>
 			<groupId>ro.fortsoft</groupId>
@@ -16,9 +16,9 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss.weld.se</groupId>
-			<artifactId>weld-se</artifactId>
-			<version>${weld.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
