@@ -1,5 +1,7 @@
 # Hedgehog
 
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000)]()
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)]()
 [![Stories in Ready](https://badge.waffle.io/danjee/hedgehog.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
 [![Travis CI Build Status](https://travis-ci.org/danjee/hedgehog.png)](https://travis-ci.org/danjee/hedgehog)
 [![Coverage Status](https://coveralls.io/repos/github/danjee/hedgehog/badge.svg?branch=master)](https://coveralls.io/github/danjee/hedgehog?branch=master)
