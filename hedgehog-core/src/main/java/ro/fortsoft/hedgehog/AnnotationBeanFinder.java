@@ -14,7 +14,7 @@ public abstract class AnnotationBeanFinder implements BeanFinder {
 				Sting sting = field.getAnnotation(Sting.class);
 				Object value = getBean(sting, field, fieldOwner);
 				if (sting.required() && value == null){
-					throw new RuntimeException("Required bean not found: " + field.getType());
+					throw new RuntimeException(String.format("Required injection object %s not found", field.getType()));
 				}
 				return value;
 			}
