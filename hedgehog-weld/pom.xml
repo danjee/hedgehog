@@ -9,9 +9,6 @@
 	<artifactId>hedgehog-weld</artifactId>
 	<name>hedgehog-weld</name>
 	<description>Weld CDI module for hedgehog</description>
-	<properties>
-		<weld.version>2.3.4.Final</weld.version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>ro.fortsoft</groupId>

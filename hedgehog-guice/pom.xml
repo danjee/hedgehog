@@ -9,9 +9,6 @@
 	<artifactId>hedgehog-guice</artifactId>
 	<name>hedgehog-guice</name>
 	<description>Guice module for hedgehog</description>
-	<properties>
-		<guice.version>4.1.0</guice.version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>ro.fortsoft</groupId>
