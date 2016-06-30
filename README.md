@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/danjee/hedgehog.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
 # Hedgehog
 
 ### Hedgehog is a Spring, Guice and Weld CDI bean injector in non-managed business java classes. 
