@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2016 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package ro.fortsoft.hedgehog;
 
 import java.util.Collections;
@@ -15,15 +30,15 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ClassMetaCache<T>
 {
+	
+	/** The cache. */
 	private volatile Map<ClassLoader, ConcurrentHashMap<String, T>> cache = Collections.emptyMap();
 
 	/**
-	 * Puts value into cache
-	 * 
-	 * @param key
-	 *            the class that will be used as the value's key
-	 * @param value
-	 *            the value that should be stored in cache
+	 * Puts value into cache.
+	 *
+	 * @param key            the class that will be used as the value's key
+	 * @param value            the value that should be stored in cache
 	 * @return value previously stored in cache for this key, or {@code null} if none
 	 */
 	public T put(final Class<?> key, final T value)
@@ -33,10 +48,9 @@ public class ClassMetaCache<T>
 	}
 
 	/**
-	 * Gets value from cache or returns {@code null} if not in cache
-	 * 
-	 * @param key
-	 *            the class that is the key for the value
+	 * Gets value from cache or returns {@code null} if not in cache.
+	 *
+	 * @param key            the class that is the key for the value
 	 * @return value stored in cache or {@code null} if none
 	 */
 	public T get(final Class<?> key)
@@ -53,8 +67,10 @@ public class ClassMetaCache<T>
 	}
 
 	/**
-	 * @param classLoader
-	 * @param create
+	 * Gets the class loader cache.
+	 *
+	 * @param classLoader the class loader
+	 * @param create the create
 	 * @return a {@link ConcurrentHashMap} mapping class names to injectable fields, never
 	 *         <code>null</code>
 	 */
@@ -92,10 +108,9 @@ public class ClassMetaCache<T>
 	}
 
 	/**
-	 * converts class into a key used by the cache
-	 * 
-	 * @param clazz
-	 * 
+	 * converts class into a key used by the cache.
+	 *
+	 * @param clazz the clazz
 	 * @return string representation of the clazz
 	 */
 	private static String key(final Class<?> clazz)
