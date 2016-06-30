@@ -1,6 +1,6 @@
 # Hedgehog
 
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000)]()
+[![Join the chat at https://gitter.im/danjee/hedgehog](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/danjee/hedgehog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)]()
 [![Stories in Ready](https://badge.waffle.io/danjee/hedgehog.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
 [![Travis CI Build Status](https://travis-ci.org/danjee/hedgehog.png)](https://travis-ci.org/danjee/hedgehog)
