@@ -4,7 +4,7 @@
 
 ##### Inspired from Wicket injectors
 
-### Use it if you want to inject some managed components in legacy classes or classes that you simple do not want to have it managed like Swing or JavaFX panels
+##### Use it if you want to inject some managed components in legacy classes or classes that you simple do not want to have it managed like Swing or JavaFX panels
 
 ## Usage sample:
 
