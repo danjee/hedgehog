@@ -1,10 +1,23 @@
 # Hedgehog
 
+[![Travis CI Build Status](https://travis-ci.org/danjee/hedgehog.png)](https://travis-ci.org/danjee/hedgehog)
+[![Coverage Status](https://coveralls.io/repos/github/danjee/hedgehog/badge.svg?branch=master)](https://coveralls.io/github/danjee/hedgehog?branch=master)
+[![Maven Central](http://img.shields.io/maven-central/v/ro.fortsoft/hedgehog.svg)](http://search.maven.org/#search|ga|1|ro.fortsoft.hedgehog)
+
+<!--
+[![Issue Stats](http://www.issuestats.com/github/danjee/hedgehog/badge/issue?style=flat)](http://www.issuestats.com/github/danjee/hedgehog)
+[![Issue Stats](http://www.issuestats.com/github/danjee/hedgehog/badge/pr?style=flat)](http://www.issuestats.com/github/danjee/hedgehog)
+-->
+[![Stories in Ready](https://badge.waffle.io/danjee/generic-data.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
+
+
+
+
 ### Hedgehog is a Spring, Guice and Weld CDI bean injector in non-managed business java classes. 
 
 ##### Inspired from Wicket injectors
 
-##### Use it if you want to inject some managed components in legacy classes or classes that you simple do not want to have it managed like Swing or JavaFX panels
+Use it if you want to inject some managed components in legacy classes or classes that you simple do not want to have it managed like Swing or JavaFX panels. 
 
 ## Usage sample:
 
