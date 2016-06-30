@@ -11,8 +11,6 @@ import java.lang.annotation.Target;
 @Documented
 public @interface Sting {
 
-	String name() default "";
-
 	boolean required() default true;
 	
 	boolean proxy() default false;

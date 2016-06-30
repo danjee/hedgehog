@@ -10,6 +10,16 @@
 
 ### Spring
 
+Use the dependency:
+
+```xml
+<dependency>
+	<groupId>ro.fortsoft</groupId>
+	<artifactId>hedgehog-spring</artifactId>
+	<version>0.0.1</version>
+</dependency>
+```
+
 The configuration class:
 
 ```java
@@ -75,6 +85,16 @@ public class App implements InjectAwareApplication {
 ```
 
 ### Guice
+
+Use the dependency:
+
+```xml
+<dependency>
+	<groupId>ro.fortsoft</groupId>
+	<artifactId>hedgehog-guice</artifactId>
+	<version>0.0.1</version>
+</dependency>
+```
 
 The Guice module class:
 
@@ -167,6 +187,16 @@ public class App implements StingAwareApplication {
 ```
 
 ### Weld
+
+Use the dependency:
+
+```xml
+<dependency>
+	<groupId>ro.fortsoft</groupId>
+	<artifactId>hedgehog-weld</artifactId>
+	<version>0.0.1</version>
+</dependency>
+```
 
 The service class
 
