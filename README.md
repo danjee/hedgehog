@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/danjee/hedgehog.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
 # Hedgehog
 
 [![Travis CI Build Status](https://travis-ci.org/danjee/hedgehog.png)](https://travis-ci.org/danjee/hedgehog)
