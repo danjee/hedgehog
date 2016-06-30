@@ -17,14 +17,7 @@ public class SpringAnnotationBeanFinder extends AnnotationBeanFinder {
 
 	@Override
 	protected Object getBean(Sting sting, Field field, Object fieldOwner) {
-		Object value = null;
-		if (sting.name() != null && sting.name().length() > 0){
-			value = applicationContext.getBean(sting.name());
-		}
-		if (value == null){
-			value = applicationContext.getBean(field.getType());
-		}
-		return value;
+		return applicationContext.getBean(field.getType());
 	}
 
 }
