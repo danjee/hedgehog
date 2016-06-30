@@ -1,6 +1,6 @@
-[![Stories in Ready](https://badge.waffle.io/danjee/hedgehog.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
 # Hedgehog
 
+[![Stories in Ready](https://badge.waffle.io/danjee/hedgehog.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
 [![Travis CI Build Status](https://travis-ci.org/danjee/hedgehog.png)](https://travis-ci.org/danjee/hedgehog)
 [![Coverage Status](https://coveralls.io/repos/github/danjee/hedgehog/badge.svg?branch=master)](https://coveralls.io/github/danjee/hedgehog?branch=master)
 [![Maven Central](http://img.shields.io/maven-central/v/ro.fortsoft/hedgehog.svg)](http://search.maven.org/#search|ga|1|ro.fortsoft.hedgehog)
@@ -9,8 +9,6 @@
 [![Issue Stats](http://www.issuestats.com/github/danjee/hedgehog/badge/issue?style=flat)](http://www.issuestats.com/github/danjee/hedgehog)
 [![Issue Stats](http://www.issuestats.com/github/danjee/hedgehog/badge/pr?style=flat)](http://www.issuestats.com/github/danjee/hedgehog)
 -->
-[![Stories in Ready](https://badge.waffle.io/danjee/generic-data.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
-
 
 
 
