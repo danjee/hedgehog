@@ -30,7 +30,7 @@ Use the dependency:
 <dependency>
 	<groupId>ro.fortsoft</groupId>
 	<artifactId>hedgehog-spring</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 </dependency>
 ```
 
@@ -82,7 +82,7 @@ Main class
 ```java
 public class App implements StingAwareApplication {
 
-	private MetaDataEntry<?>[] metaData;
+	private MetaDataEntry<Stinger>[] metaData;
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -97,7 +97,7 @@ public class App implements StingAwareApplication {
         return key.get(metaData);
     }
 
-    public void setMetaData(final MetaDataKey<Stinger> key, final Object object) {
+    public void setMetaData(final MetaDataKey<Stinger> key, final Stinger object) {
         metaData = key.set(metaData, object);
     }
 }
@@ -111,7 +111,7 @@ Use the dependency:
 <dependency>
 	<groupId>ro.fortsoft</groupId>
 	<artifactId>hedgehog-guice</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 </dependency>
 ```
 
@@ -184,7 +184,7 @@ Main class
 ```java
 public class App implements StingAwareApplication {
 	
-	private MetaDataEntry<?>[] metaData;
+	private MetaDataEntry<Stinger>[] metaData;
 	
 	public static void main(String[] args) {
 		 Injector injector = Guice.createInjector(new GuiceModule());
@@ -196,12 +196,12 @@ public class App implements StingAwareApplication {
 	}
 
 	public Stinger getMetaData(MetaDataKey<Stinger> key) {
-		return key.get(metaData);
-	}
+        return key.get(metaData);
+    }
 
-	public void setMetaData(MetaDataKey<Stinger> key, Object object) {
-		metaData = key.set(metaData, object);
-	}
+    public void setMetaData(final MetaDataKey<Stinger> key, final Stinger object) {
+        metaData = key.set(metaData, object);
+    }
 }
 ```
 
@@ -213,7 +213,7 @@ Use the dependency:
 <dependency>
 	<groupId>ro.fortsoft</groupId>
 	<artifactId>hedgehog-weld</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 </dependency>
 ```
 
@@ -251,7 +251,7 @@ Main class
 ```java
 public class Main implements StingAwareApplication {
 
-	private MetaDataEntry<?>[] metaData;
+	private MetaDataEntry<Stinger>[] metaData;
 
 	public static void main(String[] args) {
 		Weld weld = new Weld();
@@ -265,12 +265,12 @@ public class Main implements StingAwareApplication {
 	}
 
 	public Stinger getMetaData(MetaDataKey<Stinger> key) {
-		return key.get(metaData);
-	}
+        return key.get(metaData);
+    }
 
-	public void setMetaData(final MetaDataKey<Stinger> key, final Object object) {
-		metaData = key.set(metaData, object);
-	}
+    public void setMetaData(final MetaDataKey<Stinger> key, final Stinger object) {
+        metaData = key.set(metaData, object);
+    }
 }
 ```
 
