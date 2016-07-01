@@ -4,7 +4,7 @@
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000)]()
 [![Stories in Ready](https://badge.waffle.io/danjee/hedgehog.png?label=ready&title=Ready)](https://waffle.io/danjee/hedgehog)
 [![Travis CI Build Status](https://travis-ci.org/danjee/hedgehog.png)](https://travis-ci.org/danjee/hedgehog)
-[![Coverage Status](https://coveralls.io/repos/github/danjee/hedgehog/badge.svg?branch=master)](https://coveralls.io/github/danjee/hedgehog?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/danjee/hedgehog/badge.svg?branch=master)](https://coveralls.io/github/danjee/hedgehog?branch=master&cache=nocache1)
 [![Maven Central](http://img.shields.io/maven-central/v/ro.fortsoft/hedgehog.svg)](http://search.maven.org/#search|ga|1|ro.fortsoft.hedgehog)
 
 <!--
