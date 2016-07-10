@@ -30,7 +30,7 @@ Use the dependency:
 <dependency>
 	<groupId>ro.fortsoft</groupId>
 	<artifactId>hedgehog-spring</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 </dependency>
 ```
 
@@ -111,7 +111,7 @@ Use the dependency:
 <dependency>
 	<groupId>ro.fortsoft</groupId>
 	<artifactId>hedgehog-guice</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 </dependency>
 ```
 
@@ -213,7 +213,7 @@ Use the dependency:
 <dependency>
 	<groupId>ro.fortsoft</groupId>
 	<artifactId>hedgehog-weld</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 </dependency>
 ```
 

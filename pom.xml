@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ro.fortsoft</groupId>
 	<artifactId>hedgehog</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>hedgehog</name>
 	<url>https://github.com/danjee/hedgehog</url>
