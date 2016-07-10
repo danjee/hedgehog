@@ -15,6 +15,7 @@
  */
 package ro.fortsoft.hedgehog;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class used for holding meta data entries.
  *

@@ -15,12 +15,12 @@
  */
 package ro.fortsoft.hedgehog;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Jonathan Locke
- * 
- * @param <T>
- *            The type of the object which is stored
+ * The Class MetaDataKey.
  *
+ * @author Jonathan Locke
+ * @param <T>            The type of the object which is stored
  */
 public abstract class MetaDataKey<T> {
 
@@ -30,12 +30,19 @@ public abstract class MetaDataKey<T> {
 	public MetaDataKey() {
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		return getClass().hashCode();
 	}
 
 	/**
+	 * Equals.
+	 *
+	 * @param obj the obj
+	 * @return true, if successful
 	 * @see Object#equals(Object)
 	 */
 	@Override
@@ -44,8 +51,9 @@ public abstract class MetaDataKey<T> {
 	}
 
 	/**
-	 * @param metaData
-	 *            Array of metadata to search
+	 * Gets the.
+	 *
+	 * @param metaData            Array of metadata to search
 	 * @return The entry value
 	 */
 	@SuppressWarnings("unchecked")
@@ -61,10 +69,10 @@ public abstract class MetaDataKey<T> {
 	}
 
 	/**
-	 * @param metaData
-	 *            The array of metadata
-	 * @param object
-	 *            The object to set, null to remove
+	 * Sets the.
+	 *
+	 * @param metaData            The array of metadata
+	 * @param object            The object to set, null to remove
 	 * @return Any new metadata array (if it was reallocated)
 	 */
 	public MetaDataEntry<T>[] set(MetaDataEntry<T>[] metaData, final Object object) {
@@ -109,6 +117,9 @@ public abstract class MetaDataKey<T> {
 	}
 
 	/**
+	 * To string.
+	 *
+	 * @return the string
 	 * @see Object#toString()
 	 */
 	@Override

@@ -15,32 +15,16 @@
  */
 package ro.fortsoft.hedgehog;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
-// TODO: Auto-generated Javadoc
 /**
- * The Interface Sting.
+ * The Class DefaultStinged.
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD })
-@Documented
-public @interface Sting {
-
-	/**
-	 * Required.
-	 *
-	 * @return true, if successful
-	 */
-	boolean required() default true;
+public class DefaultStinged implements Stinged {
 	
 	/**
-	 * Proxy.
-	 *
-	 * @return true, if successful
+	 * Instantiates a new default stinged.
 	 */
-	boolean proxy() default false;
+	public DefaultStinged(){
+		sting();
+	}
+
 }

@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
+// TODO: Auto-generated Javadoc
 /**
  * This class wraps a WeakHashMap that holds one ConcurrentHashMap per ClassLoader. In the rare
  * event of a previously unmapped ClassLoader, the WeakHashMap is replaced by a new one. This avoids
