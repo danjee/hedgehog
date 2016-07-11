@@ -1,0 +1,320 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Hedgehog by danjee</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Hedgehog</h1>
+        <p>Sting your regular non container-managed java classes with Spring, Guice and Weld CDI beans</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/danjee/hedgehog" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/danjee/hedgehog/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/danjee/hedgehog/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a id="hedgehog" class="anchor" href="#hedgehog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hedgehog</h1>
+
+<p><a href="https://gitter.im/danjee/hedgehog?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/danjee/hedgehog.svg" alt="Gitter"></a>
+<a href=""><img src="https://img.shields.io/hexpm/l/plug.svg?maxAge=2592000" alt="Hex.pm"></a>
+<a href="https://waffle.io/danjee/hedgehog"><img src="https://badge.waffle.io/danjee/hedgehog.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a>
+<a href="https://travis-ci.org/danjee/hedgehog"><img src="https://travis-ci.org/danjee/hedgehog.png" alt="Travis CI Build Status"></a>
+<a href="https://coveralls.io/github/danjee/hedgehog?branch=master"><img src="https://coveralls.io/repos/github/danjee/hedgehog/badge.svg?branch=master" alt="Coverage Status"></a>
+<a href="http://search.maven.org/#search%7Cga%7C1%7Cro.fortsoft.hedgehog"><img src="http://img.shields.io/maven-central/v/ro.fortsoft/hedgehog.svg" alt="Maven Central"></a></p>
+
+
+
+<h3>
+<a id="hedgehog-is-a-spring-guice-and-weld-cdi-bean-injector-in-non-managed-business-java-classes" class="anchor" href="#hedgehog-is-a-spring-guice-and-weld-cdi-bean-injector-in-non-managed-business-java-classes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hedgehog is a Spring, Guice and Weld CDI bean injector in non-managed business java classes.</h3>
+
+<h5>
+<a id="inspired-from-wicket-injectors" class="anchor" href="#inspired-from-wicket-injectors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inspired from Wicket injectors</h5>
+
+<p>Use it if you want to inject some managed components in legacy classes or classes that you simple do not want to have it managed like Swing or JavaFX panels. </p>
+
+<h2>
+<a id="usage-sample" class="anchor" href="#usage-sample" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage sample:</h2>
+
+<h3>
+<a id="spring" class="anchor" href="#spring" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spring</h3>
+
+<p>Use the dependency:</p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+    &lt;<span class="pl-ent">groupId</span>&gt;ro.fortsoft&lt;/<span class="pl-ent">groupId</span>&gt;
+    &lt;<span class="pl-ent">artifactId</span>&gt;hedgehog-spring&lt;/<span class="pl-ent">artifactId</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;0.0.3&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+
+<p>The configuration class:</p>
+
+<div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Configuration</span>
+@ComponentScan(basePackages <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ro.fortsoft.beans<span class="pl-pds">"</span></span>)
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">AppConfig</span> {
+
+    <span class="pl-k">@Bean</span>
+    <span class="pl-k">public</span> <span class="pl-smi">Child</span> <span class="pl-en">getChild</span>(){
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Child</span>();
+    }
+
+}</pre></div>
+
+<p>The bean:</p>
+
+<div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Component</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Child</span> {
+    <span class="pl-k">@Override</span>
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">toString</span>() {
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>I'm a child<span class="pl-pds">"</span></span>;
+    }
+}</pre></div>
+
+<p>A business panel (non managed bean)</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Panel</span> {
+
+    <span class="pl-k">@Sting</span>
+    <span class="pl-k">private</span> <span class="pl-smi">Child</span> child;
+
+    <span class="pl-k">public</span> <span class="pl-en">Panel</span>(){
+        <span class="pl-smi">Stinger</span><span class="pl-k">.</span>get()<span class="pl-k">.</span>sting(<span class="pl-v">this</span>);
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">test</span>() {
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(child);
+    }
+}</pre></div>
+
+<p>Main class</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">implements</span> <span class="pl-e">StingAwareApplication</span> {
+
+    <span class="pl-k">private</span> <span class="pl-k">MetaDataEntry&lt;<span class="pl-smi">Stinger</span>&gt;</span>[] metaData;
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-smi">AnnotationConfigApplicationContext</span> context <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">AnnotationConfigApplicationContext</span>(<span class="pl-smi">AppConfig</span><span class="pl-k">.</span>class);
+        <span class="pl-smi">SpringComponentStinger</span> stinger <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">SpringComponentStinger</span>(context);
+        <span class="pl-smi">App</span> app <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">App</span>();
+        stinger<span class="pl-k">.</span>bind(app);
+        <span class="pl-smi">Panel</span> panel <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Panel</span>();
+        panel<span class="pl-k">.</span>test();
+    }
+
+    <span class="pl-k">public</span> <span class="pl-smi">Stinger</span> <span class="pl-en">getMetaData</span>(<span class="pl-k">MetaDataKey&lt;<span class="pl-smi">Stinger</span>&gt;</span> <span class="pl-v">key</span>) {
+        <span class="pl-k">return</span> key<span class="pl-k">.</span>get(metaData);
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">setMetaData</span>(<span class="pl-k">final</span> <span class="pl-k">MetaDataKey&lt;<span class="pl-smi">Stinger</span>&gt;</span> <span class="pl-v">key</span>, <span class="pl-k">final</span> <span class="pl-smi">Stinger</span> <span class="pl-v">object</span>) {
+        metaData <span class="pl-k">=</span> key<span class="pl-k">.</span>set(metaData, object);
+    }
+}</pre></div>
+
+<h3>
+<a id="guice" class="anchor" href="#guice" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Guice</h3>
+
+<p>Use the dependency:</p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+    &lt;<span class="pl-ent">groupId</span>&gt;ro.fortsoft&lt;/<span class="pl-ent">groupId</span>&gt;
+    &lt;<span class="pl-ent">artifactId</span>&gt;hedgehog-guice&lt;/<span class="pl-ent">artifactId</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;0.0.3&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+
+<p>The Guice module class:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">GuiceModule</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractModule</span> {
+
+    <span class="pl-k">@Override</span>
+    <span class="pl-k">protected</span> <span class="pl-k">void</span> <span class="pl-en">configure</span>() {
+        bind(<span class="pl-smi">ContactService</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>to(<span class="pl-smi">InMemoryContactService</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>asEagerSingleton();
+    }
+}</pre></div>
+
+<p>The beans:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">ContactService</span> {
+
+    <span class="pl-smi">String</span> <span class="pl-en">add</span>(<span class="pl-smi">String</span> <span class="pl-v">word</span>);
+
+    <span class="pl-k">void</span> <span class="pl-en">modify</span>(<span class="pl-smi">String</span> <span class="pl-v">word</span>);
+
+    <span class="pl-k">void</span> <span class="pl-en">delete</span>(<span class="pl-smi">String</span> <span class="pl-v">word</span>);
+}</pre></div>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">InMemoryContactService</span> <span class="pl-k">implements</span> <span class="pl-e">ContactService</span> {
+
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">add</span>(<span class="pl-smi">String</span> <span class="pl-v">word</span>) {
+        <span class="pl-c">// TODO Auto-generated method stub</span>
+        <span class="pl-k">return</span> <span class="pl-c1">null</span>;
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">modify</span>(<span class="pl-smi">String</span> <span class="pl-v">word</span>) {
+        <span class="pl-c">// TODO Auto-generated method stub</span>
+
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">delete</span>(<span class="pl-smi">String</span> <span class="pl-v">word</span>) {
+        <span class="pl-c">// TODO Auto-generated method stub</span>
+
+    }
+}
+</pre></div>
+
+<p>A business panel (non managed bean)</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Panel</span> {
+
+    <span class="pl-k">@Sting</span>
+    <span class="pl-k">private</span> <span class="pl-smi">ContactService</span> contactService;
+
+    <span class="pl-k">public</span> <span class="pl-en">Panel</span>(){
+        <span class="pl-smi">Stinger</span><span class="pl-k">.</span>get()<span class="pl-k">.</span>sting(<span class="pl-v">this</span>);
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">test</span>(){
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(contactService);
+    }
+}
+</pre></div>
+
+<p>Main class</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">implements</span> <span class="pl-e">StingAwareApplication</span> {
+
+    <span class="pl-k">private</span> <span class="pl-k">MetaDataEntry&lt;<span class="pl-smi">Stinger</span>&gt;</span>[] metaData;
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+         <span class="pl-smi">Injector</span> injector <span class="pl-k">=</span> <span class="pl-smi">Guice</span><span class="pl-k">.</span>createInjector(<span class="pl-k">new</span> <span class="pl-smi">GuiceModule</span>());
+         <span class="pl-smi">GuiceComponentsStinger</span> stinger <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GuiceComponentsStinger</span>(injector);
+         <span class="pl-smi">App</span> app <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">App</span>();
+         stinger<span class="pl-k">.</span>bind(app);
+         <span class="pl-smi">Panel</span> panel <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Panel</span>();
+         panel<span class="pl-k">.</span>test();
+    }
+
+    <span class="pl-k">public</span> <span class="pl-smi">Stinger</span> <span class="pl-en">getMetaData</span>(<span class="pl-k">MetaDataKey&lt;<span class="pl-smi">Stinger</span>&gt;</span> <span class="pl-v">key</span>) {
+        <span class="pl-k">return</span> key<span class="pl-k">.</span>get(metaData);
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">setMetaData</span>(<span class="pl-k">final</span> <span class="pl-k">MetaDataKey&lt;<span class="pl-smi">Stinger</span>&gt;</span> <span class="pl-v">key</span>, <span class="pl-k">final</span> <span class="pl-smi">Stinger</span> <span class="pl-v">object</span>) {
+        metaData <span class="pl-k">=</span> key<span class="pl-k">.</span>set(metaData, object);
+    }
+}</pre></div>
+
+<h3>
+<a id="weld" class="anchor" href="#weld" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Weld</h3>
+
+<p>Use the dependency:</p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+    &lt;<span class="pl-ent">groupId</span>&gt;ro.fortsoft&lt;/<span class="pl-ent">groupId</span>&gt;
+    &lt;<span class="pl-ent">artifactId</span>&gt;hedgehog-weld&lt;/<span class="pl-ent">artifactId</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;0.0.3&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+
+<p>The service class</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Child</span> {
+    <span class="pl-k">@Override</span>
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">toString</span>() {
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>I'm a child<span class="pl-pds">"</span></span>;
+    }
+}</pre></div>
+
+<p>A business panel (non managed bean)</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Panel</span> {
+
+    <span class="pl-k">@Sting</span>
+    <span class="pl-k">private</span> <span class="pl-smi">Child</span> child;
+
+    <span class="pl-k">public</span> <span class="pl-en">Panel</span>(){
+        <span class="pl-smi">Stinger</span><span class="pl-k">.</span>get()<span class="pl-k">.</span>sting(<span class="pl-v">this</span>);
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">test</span>() {
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(child);
+    }
+}</pre></div>
+
+<p>Main class</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Main</span> <span class="pl-k">implements</span> <span class="pl-e">StingAwareApplication</span> {
+
+    <span class="pl-k">private</span> <span class="pl-k">MetaDataEntry&lt;<span class="pl-smi">Stinger</span>&gt;</span>[] metaData;
+
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-smi">Weld</span> weld <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Weld</span>();
+        <span class="pl-smi">WeldContainer</span> container <span class="pl-k">=</span> weld<span class="pl-k">.</span>initialize();
+
+        <span class="pl-smi">WeldComponentStinger</span> stinger <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">WeldComponentStinger</span>(container);
+        <span class="pl-smi">Main</span> test <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Main</span>();
+        stinger<span class="pl-k">.</span>bind(test);
+        <span class="pl-smi">Panel</span> panel <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Panel</span>();
+        panel<span class="pl-k">.</span>test();
+    }
+
+    <span class="pl-k">public</span> <span class="pl-smi">Stinger</span> <span class="pl-en">getMetaData</span>(<span class="pl-k">MetaDataKey&lt;<span class="pl-smi">Stinger</span>&gt;</span> <span class="pl-v">key</span>) {
+        <span class="pl-k">return</span> key<span class="pl-k">.</span>get(metaData);
+    }
+
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">setMetaData</span>(<span class="pl-k">final</span> <span class="pl-k">MetaDataKey&lt;<span class="pl-smi">Stinger</span>&gt;</span> <span class="pl-v">key</span>, <span class="pl-k">final</span> <span class="pl-smi">Stinger</span> <span class="pl-v">object</span>) {
+        metaData <span class="pl-k">=</span> key<span class="pl-k">.</span>set(metaData, object);
+    }
+}</pre></div>
+
+<h2>
+<a id="versioning" class="anchor" href="#versioning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Versioning</h2>
+
+<p>Hedgehog will be maintained under the Semantic Versioning guidelines as much as possible.</p>
+
+<p>Releases will be numbered with the follow format:</p>
+
+<p><code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code></p>
+
+<p>And constructed with the following guidelines:</p>
+
+<ul>
+<li>Breaking backward compatibility bumps the major</li>
+<li>New additions without breaking backward compatibility bumps the minor</li>
+<li>Bug fixes and misc changes bump the patch</li>
+</ul>
+
+<p>For more information on SemVer, please visit <a href="http://semver.org">http://semver.org</a>.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/danjee">danjee</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
