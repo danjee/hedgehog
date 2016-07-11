@@ -15,7 +15,6 @@
  */
 package ro.fortsoft.hedgehog;
 
-// TODO: Auto-generated Javadoc
 /**
  * Created by daniel on 22.06.2016.
  */

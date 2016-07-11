@@ -18,15 +18,11 @@ package ro.fortsoft.hedgehog;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-// TODO: Auto-generated Javadoc
 /**
  * Created by daniel on 23.06.2016.
  */
 public abstract class AnnotationBeanFinder implements BeanFinder {
 	
-	/* (non-Javadoc)
-	 * @see ro.fortsoft.hedgehog.BeanFinder#getFieldValue(java.lang.reflect.Field, java.lang.Object)
-	 */
 	@Override
 	public Object getFieldValue(Field field, Object fieldOwner) {
 		if (supportsField(field)) {
@@ -52,9 +48,6 @@ public abstract class AnnotationBeanFinder implements BeanFinder {
 	 */
 	protected abstract Object getBean(Sting sting, Field field, Object fieldOwner);
 
-	/* (non-Javadoc)
-	 * @see ro.fortsoft.hedgehog.BeanFinder#supportsField(java.lang.reflect.Field)
-	 */
 	@Override
 	public boolean supportsField(Field field) {
 		return field.isAnnotationPresent(Sting.class);
