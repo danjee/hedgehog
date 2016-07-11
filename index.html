@@ -1,45 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Hedgehog by danjee</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/main.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <title>Hedgehog by danjee</title>
   </head>
+
   <body>
+    <div id="container">
+      <div class="inner">
 
-      <header>
-        <h1>Hedgehog</h1>
-        <p>Sting your regular non container-managed java classes with Spring, Guice and Weld CDI beans</p>
-      </header>
+        <header>
+          <h1>Hedgehog</h1>
+          <h2>Sting your regular non container-managed java classes with Spring, Guice and Weld CDI beans</h2>
+        </header>
 
-      <div id="banner">
-        <span id="logo"></span>
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/danjee/hedgehog/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/danjee/hedgehog/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/danjee/hedgehog" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
 
-        <a href="https://github.com/danjee/hedgehog" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/danjee/hedgehog/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/danjee/hedgehog/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
+        <hr>
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
-        <h1>
+        <section id="main_content">
+          <h1>
 <a id="hedgehog" class="anchor" href="#hedgehog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hedgehog</h1>
 
 <p><a href="https://gitter.im/danjee/hedgehog?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge"><img src="https://badges.gitter.im/danjee/hedgehog.svg" alt="Gitter"></a>
@@ -65,7 +57,7 @@
 <h3>
 <a id="spring" class="anchor" href="#spring" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Spring</h3>
 
-<p>Use the dependency:</p>
+<p>Use the maven dependency:</p>
 
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;ro.fortsoft&lt;/<span class="pl-ent">groupId</span>&gt;
@@ -73,7 +65,7 @@
     &lt;<span class="pl-ent">version</span>&gt;0.0.3&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
-<p>The configuration class:</p>
+<p>The configuration class, with a sample bean that gets initialized here:</p>
 
 <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Configuration</span>
 @ComponentScan(basePackages <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>ro.fortsoft.beans<span class="pl-pds">"</span></span>)
@@ -86,7 +78,7 @@
 
 }</pre></div>
 
-<p>The bean:</p>
+<p>The bean definition:</p>
 
 <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Component</span>
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Child</span> {
@@ -96,7 +88,7 @@
     }
 }</pre></div>
 
-<p>A business panel (non managed bean)</p>
+<p>A business panel (non managed bean), this can be any of your legacy classes that you do not want to add them to Spring management:</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Panel</span> {
 
@@ -112,7 +104,7 @@
     }
 }</pre></div>
 
-<p>Main class</p>
+<p>Main class could look like this:</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">implements</span> <span class="pl-e">StingAwareApplication</span> {
 
@@ -139,7 +131,7 @@
 <h3>
 <a id="guice" class="anchor" href="#guice" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Guice</h3>
 
-<p>Use the dependency:</p>
+<p>Use the maven dependency:</p>
 
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;ro.fortsoft&lt;/<span class="pl-ent">groupId</span>&gt;
@@ -157,7 +149,7 @@
     }
 }</pre></div>
 
-<p>The beans:</p>
+<p>The beans (interface and implementation):</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">ContactService</span> {
 
@@ -187,7 +179,7 @@
 }
 </pre></div>
 
-<p>A business panel (non managed bean)</p>
+<p>A business panel (non managed bean). This could be any of your java classes that you do not want Guice to be aware of them</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Panel</span> {
 
@@ -231,7 +223,7 @@
 <h3>
 <a id="weld" class="anchor" href="#weld" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Weld</h3>
 
-<p>Use the dependency:</p>
+<p>Use the maven dependency:</p>
 
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;ro.fortsoft&lt;/<span class="pl-ent">groupId</span>&gt;
@@ -239,7 +231,7 @@
     &lt;<span class="pl-ent">version</span>&gt;0.0.3&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
-<p>The service class</p>
+<p>The service class to be injected</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Child</span> {
     <span class="pl-k">@Override</span>
@@ -264,7 +256,7 @@
     }
 }</pre></div>
 
-<p>Main class</p>
+<p>Main class, this should print the <code>I'm a child</code> because the injection succeeded:</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Main</span> <span class="pl-k">implements</span> <span class="pl-e">StingAwareApplication</span> {
 
@@ -275,8 +267,8 @@
         <span class="pl-smi">WeldContainer</span> container <span class="pl-k">=</span> weld<span class="pl-k">.</span>initialize();
 
         <span class="pl-smi">WeldComponentStinger</span> stinger <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">WeldComponentStinger</span>(container);
-        <span class="pl-smi">Main</span> test <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Main</span>();
-        stinger<span class="pl-k">.</span>bind(test);
+        <span class="pl-smi">Main</span> mainApp <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Main</span>();
+        stinger<span class="pl-k">.</span>bind(mainApp);
         <span class="pl-smi">Panel</span> panel <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Panel</span>();
         panel<span class="pl-k">.</span>test();
     }
@@ -308,13 +300,20 @@
 </ul>
 
 <p>For more information on SemVer, please visit <a href="http://semver.org">http://semver.org</a>.</p>
-      </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/danjee">danjee</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
-      </footer>
+
+<h2>
+<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Issues</h2>
+
+<p>Any issue or improvement idea is welcome, also pull-requests are happily accepted.</p>
+        </section>
+
+        <footer>
+          Hedgehog is maintained by <a href="https://github.com/danjee">danjee</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
   </body>
 </html>
