@@ -24,7 +24,7 @@ Use it if you want to inject some managed components in legacy classes or classe
 
 ### Spring
 
-Use the dependency:
+Use the maven dependency:
 
 ```xml
 <dependency>
@@ -34,7 +34,7 @@ Use the dependency:
 </dependency>
 ```
 
-The configuration class:
+The configuration class, with a sample bean that gets initialized here:
 
 ```java
 @Configuration
@@ -49,7 +49,7 @@ public class AppConfig {
 }
 ```
 
-The bean:
+The bean definition:
 
 ```java
 @Component
@@ -60,7 +60,7 @@ public class Child {
 	}
 }
 ```
-A business panel (non managed bean)
+A business panel (non managed bean), this can be any of your legacy classes that you do not want to add them to Spring management:
 
 ```java
 public class Panel {
@@ -78,7 +78,8 @@ public class Panel {
 }
 ```
 
-Main class
+Main class could look like this:
+
 ```java
 public class App implements StingAwareApplication {
 
@@ -105,7 +106,7 @@ public class App implements StingAwareApplication {
 
 ### Guice
 
-Use the dependency:
+Use the maven dependency:
 
 ```xml
 <dependency>
@@ -127,7 +128,7 @@ public class GuiceModule extends AbstractModule {
 }
 ```
 
-The beans:
+The beans (interface and implementation):
 
 ```java
 public interface ContactService {
@@ -161,7 +162,7 @@ public class InMemoryContactService implements ContactService {
 
 ```
 
-A business panel (non managed bean)
+A business panel (non managed bean). This could be any of your java classes that you do not want Guice to be aware of them
 
 ```java
 public class Panel {
@@ -207,7 +208,7 @@ public class App implements StingAwareApplication {
 
 ### Weld
 
-Use the dependency:
+Use the maven dependency:
 
 ```xml
 <dependency>
@@ -217,7 +218,7 @@ Use the dependency:
 </dependency>
 ```
 
-The service class
+The service class to be injected
 
 ```java
 public class Child {
@@ -246,7 +247,8 @@ public class Panel {
 }
 ```
 
-Main class
+Main class, this should print the `I'm a child` because the injection succeeded:
+
 
 ```java
 public class Main implements StingAwareApplication {
@@ -258,8 +260,8 @@ public class Main implements StingAwareApplication {
 		WeldContainer container = weld.initialize();
 
 		WeldComponentStinger stinger = new WeldComponentStinger(container);
-		Main test = new Main();
-		stinger.bind(test);
+		Main mainApp = new Main();
+		stinger.bind(mainApp);
 		Panel panel = new Panel();
 		panel.test();
 	}
@@ -289,3 +291,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bump the patch
 
 For more information on SemVer, please visit http://semver.org.
+
+## Issues 
+
+Any issue or improvement idea is welcome, also pull-requests are happily accepted.
